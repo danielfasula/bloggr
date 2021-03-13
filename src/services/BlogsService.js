@@ -9,8 +9,13 @@ class BlogsService {
   }
 
   async createBlog(blogData) {
-    await sandboxApi.post('api/blogs', blogData)
-    this.getAll()
+    try {
+      const res = await sandboxApi.post('api/blogs', blogData)
+      AppState.blogs.push(res.data)
+      return res.data.id
+    } catch (error) {
+      logger.log(error)
+    }
   }
 
   async deleteBlog(id) {
@@ -31,6 +36,7 @@ class BlogsService {
     try {
       const res = await sandboxApi.get('api/blogs/' + id + '/comments')
       AppState.comments = res.data
+      logger.log(AppState.comments)
     } catch (error) {
       logger.log(error)
     }

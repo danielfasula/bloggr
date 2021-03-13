@@ -73,11 +73,13 @@
 <script>
 import { reactive } from 'vue'
 import { blogsService } from '../services/BlogsService'
+import { useRouter } from 'vue-router'
 import { logger } from '../utils/Logger'
 import $ from 'jquery'
 export default {
   name: 'CreateBlogModal',
   setup() {
+    const router = useRouter()
     const state = reactive({
       newBlog: {}
     })
@@ -85,9 +87,10 @@ export default {
       state,
       async createBlog() {
         try {
-          await blogsService.createBlog(state.newBlog)
-          state.newBlog = {}
+          const blogId = await blogsService.createBlog(state.newBlog)
           $('#create-blog').modal('hide')
+          router.push({ name: 'BlogDetailsPage', params: { id: blogId } })
+          state.newBlog = {}
         } catch (error) {
           logger.log(error)
         }
