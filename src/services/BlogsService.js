@@ -3,6 +3,11 @@ import { logger } from '../utils/Logger'
 import { sandboxApi } from './AxiosService'
 
 class BlogsService {
+  async getUsersBlogs() {
+    const res = await sandboxApi.get('account/blogs')
+    AppState.usersBlogs = res.data
+  }
+
   async getAll() {
     const res = await sandboxApi.get('api/blogs')
     AppState.blogs = res.data

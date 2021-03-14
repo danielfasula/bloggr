@@ -3,11 +3,13 @@
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <img
+          class="ml-2"
           alt="logo"
-          src="../assets/img/cw-logo.png"
+          src="../assets/img/ghost.png"
           height="45"
         />
       </div>
+      <h1 class="ml-2">BLOGGR</h1>
     </router-link>
     <button
       class="navbar-toggler"
@@ -118,10 +120,10 @@ export default {
 a:hover {
   text-decoration: none;
 }
-.nav-link{
+.nav-link {
   text-transform: uppercase;
 }
-.nav-item .nav-link.router-link-exact-active{
+.nav-item .nav-link.router-link-exact-active {
   color: var(--primary);
 }
 </style>

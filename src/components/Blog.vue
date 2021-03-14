@@ -10,7 +10,10 @@
       <router-link :to="{ name: 'BlogDetailsPage', params: { id: blog.id } }">
         <div class="card bg-primary rounded">
           <div class="card-body text-secondary w-100">
-            <p>{{ blog.title }}</p>
+            <h6>
+              {{ blog.title }} <br />-
+              <small>{{ blog.creator.name }}</small>
+            </h6>
           </div>
         </div>
       </router-link>

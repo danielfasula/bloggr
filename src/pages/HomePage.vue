@@ -1,7 +1,8 @@
 <template>
   <div class="home container text-center">
     <h1>BLOGGR</h1>
-    <div class="row">
+    <!-- NOTE figure out how to hide create button when not logged in -->
+    <div v-if="state.account" class="row">
       <div class="col text-center">
         <button
           type="button"
@@ -25,11 +26,14 @@
 import { reactive, computed, onMounted } from 'vue'
 import { AppState } from '../AppState'
 import { blogsService } from '../services/BlogsService'
+
 export default {
   name: 'Home',
   setup() {
     const state = reactive({
       loading: true,
+      user: computed(() => AppState.user),
+      account: computed(() => AppState.account),
       blogs: computed(() => AppState.blogs),
       showForm: false
     })

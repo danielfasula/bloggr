@@ -1,7 +1,8 @@
 <template>
   <li class="list-group-item comment mt-2">
     <h5>
-      <big>{{ comment.body }}</big> - <small>{{ comment.creator.name }}</small>
+      <big>{{ comment.body }}</big> <br />-
+      <small>{{ comment.creator.name }}</small>
     </h5>
     <div v-if="comment.creator">
       <div
