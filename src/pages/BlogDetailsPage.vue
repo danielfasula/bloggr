@@ -22,7 +22,17 @@
           </div>
           <EditBlogModal />
           <div class="rounded">
-            <img class="card-img-top" :src="state.blog.imgUrl" alt="" />
+            <img
+              v-if="state.blog.imgUrl"
+              class="card-img-top"
+              :src="state.blog.imgUrl"
+              alt=""
+            />
+            <img
+              v-else
+              src="https://via.placeholder.com/400?text=The+creator++of+this+blog+has+not+provided+an+image"
+              alt=""
+            />
           </div>
           <div class="card-body text-secondary text-center">
             <h3>{{ state.blog.title }}</h3>
