@@ -47,7 +47,7 @@
                   name="imgUrl"
                   id="imgUrl"
                   class="form-control"
-                  placeholder="Enter img url"
+                  placeholder="Optional Image"
                   aria-describedby="helpId"
                   v-model="state.newBlog.imgUrl"
                 />
