@@ -2,7 +2,7 @@
   <div class="home container text-center">
     <h1>BLOGGR</h1>
     <!-- NOTE figure out how to hide create button when not logged in -->
-    <div v-if="state.account" class="row">
+    <div v-if="state.user.isAuthenticated" class="row">
       <div class="col text-center">
         <button
           type="button"
@@ -15,7 +15,7 @@
         <CreateBlogModal />
       </div>
     </div>
-    <div class="row">
+    <div class="row justify-content-around">
       <i class="fas fa-spinner fa-spin" v-if="state.loading"></i>
       <Blog v-else v-for="blog in state.blogs" :key="blog.id" :blog="blog" />
     </div>
